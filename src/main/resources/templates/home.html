@@ -1,88 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:insert="fragments/head.html :: headerfiles"></head>
 
 <body>
-    <nav th:insert="fragments/navbar.html :: navbar" class="sticky-top"></nav>
+	<nav th:insert="fragments/navbar.html :: navbar" class="sticky-top"></nav>
 
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item carousel-item-1 active">
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1 class="fw-bolder">Casa Trans de Lima Este.</h1>
-                <h2 class="fw-bolder">We bring the home to you.</h2>
-                <h5 class="fw-bolder">"Our house is inclusive, we are not going to exclude anyone. Everyone and everyone is welcome, but mainly we are going to serve trans women" <br>- Vania</h5>
-                <p class="fw-bolder"> "Nuestra casa es inclusiva, no vamos a excluir a nadie.Todas y todos están bienvenidas, pero principalmente vamos a atender a mujeres trans“
-                    </p>
-                <a class="btn btn-lg lightPink_btn" th:href="@{'/applications'}">Look for a home</a>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item carousel-item-2">
-    
-            <div class="container">
-              <div class="carousel-caption">
-                <h1 class="fw-bolder">Did you know that the main problem transgender people face is homelesness?</h1>
-                <a class="btn btn-lg lightPink_btn" href="#about">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+	<div class="container mt-5 mb-5" id="about">
+		<div class="row mt-5 justify-content-center ">
+			<div class="col align-self-center">
+				<h1>About the issue</h1>
+				<br>
+				<p>Since most of the small companies in the country do not have
+					an inventory system to manage their products, our team of
+					developers have built a prototype to solve the need.</p>
+			</div>
+			<div class="col align-self-center">
+				<img th:src="@{../../img/searchHouse.png}" alt=""
+					style="width: inherit;">
+			</div>
+		</div>
+		<div class="row justify-content-center mt-5">
+			<div class="text-center">
+				<h1>Only 40% of Peruvians have an inventory system in their
+					small businesses</h1>
+				<br>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5">
+			<div class="col align-self-center">
+				<h1 class="text-center">Who are behind this project?</h1>
+				<br>
 
-    <div class="container mt-5 mb-5" id="about">
-        <div class="row mt-5 justify-content-center " >
-          <div class="col align-self-center">
-              <h1>
-                About the issue
-              </h1>
-              <br>
-              <p>Abusive circumstances, instances of transphobia, and inability to access formal work opportunities are just some of the reasons why trans people face homelessness at higher rates than other groups, which leaves them in an even more vulnerable situation. This is unacceptable. The law won't protect them, but we can. We aim to build a community, provide safe spaces, support systems and, above all, create opportunities, because trans people deserve the right to thrive.</p>
-          </div>
-          <div class="col align-self-center">
-            <img th:src="@{../../img/searchHouse.png}" alt="" style="width: inherit;">
-          </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-          <div class="col align-self-center">
-              <img th:src="@{../../img/pride.png}" alt="" style="max-height: 50vh; width: auto;">
-          </div>
-          <div class="col align-self-center">
-            <h1>Only 40% of Peruvians would hire a trans person.</h1>
-            <br>
-            <p >According to Universidad Peruana Cayetano Heredia, only 3% of this community can access a formal job. Due to the pandemic, their situation has become even more precarious. 
-            </p>
-          </div>
-      </div>
-      <div class="row justify-content-center mb-5">
-        <div class="col align-self-center">
-          <h1 class="text-center">How can you help?</h1>
-          <br>
-          <p class="text-center">
-            If you are an ally or part of the community, and can offer you home for transgender individuals get in touch with us!
-          </p>
-          <p class="text-center"><a class="btn btn-lg lightPink_btn text-center mx-auto" th:href="@{https://presente.pe/voluntariado/}">Contact Us</a></p>
-        </div>
-      </div>
-    </div>
+				<!-- Photos -->
+				<div class="card-group">
+					<div class="card">
+						<img th:src="@{../../img/dare.jpeg}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Jose Mascaro</h5>
+						</div>
+					</div>
+					<div class="card">
+						<img th:src="@{../../img/jisus.jpeg}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Jesus Mercado</h5>
+						</div>
+					</div>
+					<div class="card">
+						<img th:src="@{../../img/searchHouse.png}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+					</div>
+					<div class="card">
+						<img th:src="@{../../img/searchHouse.png}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+					</div>
+				</div>
+				<!-- Photos -->
 
-    <div th:insert="fragments/scripts.html :: scripts">
+				<p class="text-center">If you are an ally or part of the
+					community get in touch with us!</p>
+				<p class="text-center">
+					<a class="btn btn-lg lightPink_btn text-center mx-auto">Contact
+						Us</a>
+				</p>
+			</div>
+		</div>
+	</div>
 
+	<div th:insert="fragments/scripts.html :: scripts">
 </body>
 
 </html>
