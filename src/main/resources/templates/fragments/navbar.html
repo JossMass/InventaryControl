@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:insert="fragments/head.html :: headerfiles">
+
+<body>
+    <nav class="navbar navbar-expand-xl navbar-light bg-body rounded sticky-top shadow-sm px-5" th:fragment="navbar">
+        <div class="container-fluid mx-4">
+            <!-- ICON -->
+            <div class="">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{../../img/nuestramoda_logo.jpeg}" alt="" width="100vh" height="auto">
+                </a>
+            </div>
+            <!-- HAMBURGUER MENU -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- MENU ITEMS -->
+            <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item me-3">
+                        <a sec:authorize="isAuthenticated()" class="nav-link" aria-current="page"
+                            th:href="@{/warehouses}">Manage Warehouses</a>
+                    </li>
+                    
+                    <li class="nav-item me-3">
+                        <a sec:authorize="isAuthenticated()" class="nav-link" aria-current="page"
+                            th:href="@{/products}">Manage Products</a>
+                    </li>
+                    
+                    <li class="nav-item me-3">
+                        <a sec:authorize="isAuthenticated()" class="nav-link" aria-current="page"
+                            th:href="@{/seeProducts}">View Products</a>
+                    </li> 
+
+                </ul>
+                <!-- LOGIN-->
+                <ul class="navbar-nav mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a sec:authorize="isAnonymous()" class="nav-link login-btn px-3" th:href="@{/login}">Login <i data-feather="log-in"></i></a>
+                    </li>
+                    <li class="nav-item me-4">
+                       <p class="mt-2 fw-bolder" sec:authorize="isAuthenticated()">Welcome, <span sec:authentication="principal.username"></span></p> 
+                    </li>
+                    <li class="nav-item me-4">
+                        <a sec:authorize="isAuthenticated()" class="nav-link login-btn px-3"
+                            th:href="@{/registration}">Register new user</a>
+                    </li>
+                    <!-- LOG OUT -->
+                    <li class="nav-item">
+                        <a sec:authorize="isAuthenticated()" class="nav-link register-btn px-3" th:href="@{/logout}">Log
+                            Out <i data-feather="log-out"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SCRIPTS -->
+    <div th:insert="fragments/scripts.html :: scripts"></div>
+</body>
+
+</html>

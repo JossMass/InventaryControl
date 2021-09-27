@@ -29,6 +29,9 @@ public class Product {
 	@Column(name = "description", nullable = true)
 	private String description;
 	
+	@Column(name = "warehouseName", nullable = true)
+	private String warehouseName;
+
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	private Warehouse warehouse;
@@ -89,6 +92,14 @@ public class Product {
 
 	public void setWarehouse(Warehouse warehouse) {
 		this.warehouse = warehouse;
+	}
+	
+	public String getWarehouseName() {
+		return warehouseName;
+	}
+
+	public void setWarehouseName(String warehouseName) {
+		this.warehouseName = warehouseName;
 	}
 	
 	

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -54,12 +56,26 @@ public class ProductListController {
 	        }
 	        return "redirect:/seeProducts";
 	    }
+	 
+	 @PostMapping("save")
+	    public String saveEdit(Model model, @ModelAttribute("editProduct") Product product) {
+	        try {
+	            Product productReturn = productService.update(product);
+	            model.addAttribute("product", productReturn);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            System.err.println(e.getMessage());
+	        }
+	        return "redirect:/seeProducts";
+	    }
+
 	
 	@GetMapping("{id}/deleteProduct")
 	public String deleteProduct(@PathVariable("id") Long id) {
 		try {
 			Optional<Product> optional = productService.findById(id);
 			if(optional.isPresent()) {
+				
 				productService.deleteById(id);
 			} 
 		} catch (Exception e) {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:insert="fragments/head.html :: headerfiles"></head>
+<body>
+	<nav th:insert="fragments/navbar.html :: navbar" class="sticky-top"></nav>
+
+	<div
+		class="position-relative overflow-hidden m-md-3 text-center header-bg-img">
+		<div class="col-md-5 p-lg-5 mx-auto my-5">
+			<h1 class="display-4 fw-normal title-text">New Product</h1>
+		</div>
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+
+				<form th:action="@{/products/savenew}" th:object="${productNew}"
+					method="post">
+
+					<div class="mb-3">
+						<label for="code" class="form-label">Code</label> <input
+							type="text" class="form-control" th:field="*{code}"
+							placeholder="Code" autofocus>
+					</div>
+					<div class="mb-3">
+						<label for="name" class="form-label">Name </label> <input
+							type="text" class="form-control" th:field="*{name}"
+							placeholder="Name" autofocus>
+					</div>
+
+					<div class="mb-3">
+						<label for="brand" class="form-label">Brand</label> <input
+							type="text" class="form-control" placeholder="brand"
+							th:field="*{brand}">
+					</div>
+
+					<div class="mb-3">
+						<label for="description" class="form-label">Description</label> <input
+							type="text" class="form-control" placeholder="description"
+							th:field="*{description}">
+					</div>
+
+					<div class="mb-3"></div>
+					<button type="submit" class="btn lightPink_btn">Save</button>
+				</form>
+
+				<br> <a th:href="@{/products}" class="btn lightBlue_btn">
+					<i data-feather="corner-down-left"></i> Return
+				</a>
+
+				<!-- Modal -->
+				<!-- <div class="modal fade" id="exampleModal" tabindex="-1"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Disclaimer</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">This is confidential information.
+								The name displayed on your ID will not be shared with anyone,
+								and is asked only for your safety.</div>
+						</div>
+					</div>
+				</div> -->
+
+			</div>
+
+			<div class="col">
+				
+			</div>
+		</div>
+	</div>
+
+
+	<div th:insert="fragments/scripts.html :: scripts">
+</body>
+</html>

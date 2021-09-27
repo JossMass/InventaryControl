@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head th:insert="fragments/head.html :: headerfiles"></head>
+  <body>
+    <nav th:insert="fragments/navbar.html :: navbar" class="sticky-top"></nav>
+
+    <div class="position-relative overflow-hidden m-md-3 text-center header-bg-img">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 fw-normal title-text">Products</h1>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <!-- SEARCH -->
+        <form class="d-flex" th:action="@{/seeProducts}" method="get">
+          <input id="txtSearch" class="form-control me-2 rounded-2" type="search" placeholder="Search by name of the product or name of the warehouse"
+              aria-label="Search" name="keyword">
+          <button class="btn btn-outline-info white-font-hover rounded-2"
+              type="submit">Search</button>
+        </form>
+      </div>
+
+      <table class="table table-hover table-bordered align-middle">
+        <thead class="table-danger">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Description</th>
+            <th scope="col">Warehouse</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody class="table-info">
+          <tr th:each="product : ${products}">
+            <th th:text="${product.id}" scope="row"></th>
+            <td th:text="${product.code}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.brand}"></td>
+            <td th:text="${product.description}"></td>
+            <th th:text="${product.warehouse.name}"></th>
+            <td><a th:href="@{'/seeProducts/' + ${product.id} + '/editProduct'}" class="btn btn-secondary">
+              <i data-feather="edit-2"></i></td>
+            <td><a th:href="@{'/seeProducts/' + ${product.id} + '/deleteProduct'}" class="btn btn-danger me-2"> <i
+              data-feather="delete"></i>
+      </a> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div th:insert="fragments/scripts.html :: scripts">
+  </body>
+</html>

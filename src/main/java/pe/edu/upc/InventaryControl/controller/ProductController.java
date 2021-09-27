@@ -34,7 +34,7 @@ public class ProductController {
 			if(keyword != null) {
 				model.addAttribute("warehouses", warehouseService.findByKeyword(keyword));
 			}else {
-				model.addAttribute("houses", warehouseService.findBySpaces(warehouseSpace.getSpaces_available()));
+				model.addAttribute("warehouses", warehouseService.getAll());
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class ProductController {
 			if(optional.isPresent()) {
 				Product product = new Product();
 				warehouse = optional.get();
-				model.addAttribute("productsNew", product);
+				model.addAttribute("productNew", product);
 				return "products/newProduct";
 			}
 		} catch (Exception e) {
@@ -64,6 +64,7 @@ public class ProductController {
 	public String saveNew(Model model, @ModelAttribute("productNew") Product product) {
 		try {
 			product.setWarehouse(warehouse);
+			product.setWarehouseName(warehouse.getName());
 			Product productReturn = productService.create(product);
 			model.addAttribute("product", productReturn);
 		} catch (Exception e) {
@@ -71,7 +72,7 @@ public class ProductController {
 			System.err.println(e.getMessage());
 		}
 		
-		return "redirect:/products";
+		return "redirect:/seeProducts";
 	}
 	
 }

@@ -38,7 +38,7 @@ public class WarehouseController {
             e.printStackTrace();
             System.err.println(e.getMessage());
         }
-        return "warehouses/listWarehouses";
+        return "warehouses/listWarehouse";
 	}
 	
 	@GetMapping("new")

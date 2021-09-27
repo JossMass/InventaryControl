@@ -91,6 +91,7 @@ public class Warehouse {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+	
 
 	@Override
 	public int hashCode() {

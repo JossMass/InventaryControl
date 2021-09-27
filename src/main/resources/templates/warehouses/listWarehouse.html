@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:insert="fragments/head.html :: headerfiles"></head>
+
+<body>
+    <nav th:insert="fragments/navbar.html :: navbar" class="sticky-top"></nav>
+
+    <div class="position-relative overflow-hidden m-md-3 text-center header-bg-img">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 fw-normal title-text">Warehouses</h1>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row row-cols-auto">
+            <div class="col">
+                <h2 class="pg_title">Add Warehouse</h2>
+            </div>
+
+            <div class="col">
+                <!-- NEW -->
+                <a th:href="@{'/warehouses/new'}" class="btn lightBlue_btn"> New <i data-feather="plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+             <!-- SEARCH -->
+            <form class="d-flex" th:action="@{/warehouses}" method="get">
+                <input id="txtSearch" class="form-control me-2 rounded-2" type="search" placeholder="Search by district or name of the warehouse"
+                    aria-label="Search" name="keyword">
+                <button class="btn btn-outline-info white-font-hover rounded-2"
+                    type="submit">Search</button>
+            </form>
+        </div>
+
+        <div th:each="warehouse : ${warehouses}" class="col-12 card-deck centerd" style="padding: 5px;">
+            <div class="card mb-3 mx-auto" style="max-width: 600px;">
+                <div class="row ">
+                    <div class="col-md-4">
+                    <img th:src="@{/../img/reviewHouse.png}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Name: <span th:text="${warehouse.name}"></span></h5>
+                            <ul>
+                                <li class="card-text">Address: <span th:text="${warehouse.address}"></span></li>
+                                <li class="card-text">District: <span th:text="${warehouse.district}"></span></li>
+                            </ul>
+                        </div>
+                        <div class="text-end mb-3 me-4">
+                            <!-- EDIT -->
+                            <a th:href="@{'/warehouses/' + ${warehouse.id} + '/editWarehouse'}" class="btn btn-secondary me-2">
+                                <i data-feather="edit"></i> Edit
+                            </a>
+                            <!-- DELETE -->
+                            <a th:href="@{'/warehouses/' + ${warehouse.id} + '/deleteWarehouse'}" class="btn btn-danger me-2"> <i
+                                    data-feather="delete"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:insert="fragments/scripts.html :: scripts">
+
+</body>
+
+</html>
