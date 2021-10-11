@@ -26,6 +26,7 @@
               >Code</label
             >
             <input
+            	required
               type="text"
               class="form-control"
               th:field="*{code}"
@@ -38,6 +39,7 @@
               >Name</label
             >
             <input
+            	required
               type="text"
               class="form-control"
               placeholder="Name"
@@ -48,6 +50,7 @@
           <div class="mb-3">
             <label for="brand" class="form-label">Brand</label>
             <input
+           	 	required
               type="text"
               class="form-control"
               placeholder="Brand"
@@ -62,6 +65,18 @@
               class="form-control"
               placeholder="Description"
               th:field="*{description}"
+            />
+          </div>
+          
+          <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input
+            required
+              type="text"
+              pattern="[1-9]*"
+              class="form-control"
+              placeholder="Stock"
+              th:field="*{stock}"
             />
           </div>
 

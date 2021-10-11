@@ -20,18 +20,27 @@
 					method="post">
 
 					<div class="mb-3">
-						<label for="code" class="form-label">Code</label> <input
+						<label for="code" class="form-label">Code</label> 
+						<input 
 							type="text" class="form-control" th:field="*{code}"
+							required
+							maxlength="13"
+							minlength="13"
+							pattern="[0-9]*"
 							placeholder="Code" autofocus>
 					</div>
 					<div class="mb-3">
 						<label for="name" class="form-label">Name </label> <input
+							required
+							maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only"
 							type="text" class="form-control" th:field="*{name}"
 							placeholder="Name" autofocus>
 					</div>
 
 					<div class="mb-3">
 						<label for="brand" class="form-label">Brand</label> <input
+							required
+							maxlength="30"
 							type="text" class="form-control" placeholder="brand"
 							th:field="*{brand}">
 					</div>
@@ -40,6 +49,16 @@
 						<label for="description" class="form-label">Description</label> <input
 							type="text" class="form-control" placeholder="description"
 							th:field="*{description}">
+					</div>
+					
+					<div class="mb-3">
+						<label for="stock" class="form-label">Stock</label> 
+						<input
+							required
+							type="text" class="form-control" placeholder="stock"	
+							pattern="[1-9]*"
+							title = "Must contain numbers major 1"
+							th:field="*{stock}">
 					</div>
 
 					<div class="mb-3"></div>

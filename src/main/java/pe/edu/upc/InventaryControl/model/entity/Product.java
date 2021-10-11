@@ -31,6 +31,9 @@ public class Product {
 	
 	@Column(name = "warehouseName", nullable = true)
 	private String warehouseName;
+	
+	@Column(name = "stock", nullable = true)
+	private Integer stock;
 
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
@@ -100,6 +103,14 @@ public class Product {
 
 	public void setWarehouseName(String warehouseName) {
 		this.warehouseName = warehouseName;
+	}
+	
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 	
 	

@@ -32,6 +32,7 @@
             <th scope="col">Name</th>
             <th scope="col">Brand</th>
             <th scope="col">Description</th>
+            <th scope="col">Stock</th>
             <th scope="col">Warehouse</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
@@ -45,6 +46,7 @@
             <td th:text="${product.name}"></td>
             <td th:text="${product.brand}"></td>
             <td th:text="${product.description}"></td>
+            <td th:text="${product.stock}"></td>
             <th th:text="${product.warehouse.name}"></th>
             <td><a th:href="@{'/seeProducts/' + ${product.id} + '/editProduct'}" class="btn btn-secondary">
               <i data-feather="edit-2"></i></td>
