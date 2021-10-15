@@ -30,7 +30,7 @@
 							placeholder="Code" autofocus>
 					</div>
 					<div class="mb-3">
-						<label for="name" class="form-label">Name </label> <input
+						<label for="name" class="form-label">Product Name </label> <input
 							required
 							maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only"
 							type="text" class="form-control" th:field="*{name}"
@@ -41,6 +41,7 @@
 						<label for="brand" class="form-label">Brand</label> <input
 							required
 							maxlength="30"
+							pattern="[a-zA-Z0-9'-'\s]*" title = "Must contain no special characters"
 							type="text" class="form-control" placeholder="brand"
 							th:field="*{brand}">
 					</div>

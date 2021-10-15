@@ -18,7 +18,7 @@
                 <form th:action="@{/warehouses/savenew}" th:object="${warehouseNew}" method="post">
                     <div class="mb-3">
 
-                        <label for="name" class="form-label">Name</label> <input required type="text" maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only" class="form-control" 
+                        <label for="name" class="form-label">Warehouse Name</label> <input required type="text" maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only" class="form-control" 
                             th:field="*{name}" placeholder="Name of the Warehouse" autofocus><br>
 
                         <label for="district" class="form-label">District</label> <input required type="text" maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only"

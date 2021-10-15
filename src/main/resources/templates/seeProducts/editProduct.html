@@ -36,11 +36,12 @@
           </div>
           <div class="mb-3">
             <label for="name" class="form-label"
-              >Name</label
+              >Product Name</label
             >
             <input
             	required
               type="text"
+              maxlength="30" pattern="[a-zA-Z'-'\s]*" title = "Must contain text only"
               class="form-control"
               placeholder="Name"
               th:field="*{name}"
@@ -52,6 +53,8 @@
             <input
            	 	required
               type="text"
+              maxlength="30"
+              pattern="[a-zA-Z0-9'-'\s]*" title = "Must contain no special characters"
               class="form-control"
               placeholder="Brand"
               th:field="*{brand}"
